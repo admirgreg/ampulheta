@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>ASCII</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <canvas id="c"></canvas>
+  <canvas id="glow"></canvas>
+  <div id="panel" class="panel">
+    <div class="row">
+      <button id="flipBtn" title="Virar (espaço ou clique na ampulheta)">⟲ virar</button>
+      <button id="pause" title="Pausar (P)">⏸ pausar</button>
+      <label>velocidade <input id="spd" type="range" min="0" max="4" step="0.1" value="1"><output id="spdv">1.0×</output></label>
+      <label>areia <input id="lvl" type="range" min="0" max="1" step="0.005" value="0"></label>
+      <label>timer
+        <select id="tmr">
+          <option value="0">livre</option><option value="1">1 min</option><option value="5">5 min</option>
+          <option value="25">25 min (pomodoro)</option><option value="50">50 min</option>
+        </select>
+      </label>
+    </div>
+    <div class="row">
+      <button id="pal" title="Trocar cor (C)">◐ cor</button>
+      <button id="ramp" title="Trocar letras (R)">Aa letras</button>
+      <button id="glowBtn" title="Brilho (G)">✦ brilho</button>
+      <button id="rec" title="Gravar vídeo .webm">● gravar</button>
+      <button id="fs" title="Tela cheia (F)">⛶ tela cheia</button>
+    </div>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>
