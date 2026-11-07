@@ -1,103 +1,33 @@
-:root {
-  --bg: #000;
-  --fg: #b8bcc8;
-  color-scheme: dark;
-}
-html,
-body {
-  height: 100%;
-  margin: 0;
-  background: var(--bg);
-  overflow: hidden;
-}
-canvas {
-  display: block;
-  width: 100%;
-  height: 100%;
-  touch-action: none;
-  cursor: grab;
-}
-canvas:active {
-  cursor: grabbing;
-}
-.panel {
-  position: fixed;
-  left: 50%;
-  bottom: max(16px, env(safe-area-inset-bottom));
-  transform: translateX(-50%);
-  z-index: 3;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 8px;
-  padding: 10px 16px;
-  max-width: calc(100vw - 24px);
-  background: rgba(8, 8, 10, 0.62);
-  border: 1px solid #2a2a30;
-  border-radius: 12px;
-  backdrop-filter: blur(6px);
-  font:
-    12px ui-monospace,
-    Menlo,
-    Consolas,
-    monospace;
-  color: var(--fg);
-  transition: opacity 0.4s;
-}
-.panel.idle {
-  opacity: 0;
-  pointer-events: none;
-}
-.panel label {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-}
-.panel output {
-  min-width: 3ch;
-}
-.panel button {
-  font: inherit;
-  color: var(--fg);
-  background: #16161a;
-  border: 1px solid #33333a;
-  border-radius: 8px;
-  padding: 6px 10px;
-  cursor: pointer;
-}
-.panel button:hover {
-  background: #22222a;
-}
-.panel input[type="range"] {
-  width: 110px;
-  accent-color: #b8bcc8;
-}
-#glow {
-  position: fixed;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  pointer-events: none;
-  mix-blend-mode: screen;
-  filter: blur(7px) brightness(1.7);
-  opacity: 0.75;
-  z-index: 2;
-}
-.row {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  align-items: center;
-  gap: 8px 16px;
-}
-.panel select {
-  font: inherit;
-  color: var(--fg);
-  background: #16161a;
-  border: 1px solid #33333a;
-  border-radius: 8px;
-  padding: 5px 6px;
-}
-.panel input:disabled {
-  opacity: 0.35;
-}
+:root{--bg:#000;--fg:#b8bcc8;color-scheme:dark}
+html,body{height:100%;margin:0;background:var(--bg);overflow:hidden}
+canvas{display:block;width:100%;height:100%;touch-action:none;cursor:grab}
+canvas:active{cursor:grabbing}
+#glow{position:fixed;inset:0;width:100%;height:100%;pointer-events:none;mix-blend-mode:screen;filter:blur(7px) brightness(1.7);opacity:.75;z-index:2}
+/* menu hambúrguer (esquerda) */
+.menuBtn{position:fixed;top:max(14px,env(safe-area-inset-top));left:max(14px,env(safe-area-inset-left));width:40px;height:40px;z-index:7;display:flex;flex-direction:column;justify-content:center;align-items:center;gap:5px;
+ background:rgba(8,8,10,.55);border:1px solid #2a2a30;border-radius:10px;cursor:pointer;backdrop-filter:blur(6px);transition:opacity .4s,background .2s}
+.menuBtn:hover{background:rgba(30,30,38,.8)}
+.menuBtn.idle{opacity:.18}
+.menuBtn span{display:block;width:18px;height:2px;background:var(--fg);border-radius:2px;transition:transform .25s,opacity .2s}
+.menuBtn.open span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+.menuBtn.open span:nth-child(2){opacity:0}
+.menuBtn.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+.drawer{position:fixed;top:0;left:0;bottom:0;width:min(300px,86vw);box-sizing:border-box;z-index:6;overflow-y:auto;padding:66px 16px 20px;
+ background:rgba(8,8,10,.86);backdrop-filter:blur(12px);border-right:1px solid #2a2a30;font:12px ui-monospace,Menlo,Consolas,monospace;color:var(--fg);
+ transform:translateX(-104%);visibility:hidden;transition:transform .28s ease,visibility 0s .28s}
+.drawer.open{transform:none;visibility:visible;transition:transform .28s ease}
+.drawer h2{position:absolute;top:22px;left:68px;margin:0;font-size:13px;font-weight:600;letter-spacing:.04em}
+.drawer section{margin-bottom:18px}
+.drawer h3{margin:0 0 8px;font-size:10px;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:#7c8090}
+.list{display:flex;flex-direction:column;gap:6px}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:6px;margin-bottom:10px}
+.drawer button,.drawer select{font:inherit;color:var(--fg);background:#16161a;border:1px solid #2e2e36;border-radius:8px;padding:8px 10px;cursor:pointer;text-align:left}
+.drawer button:hover,.drawer select:hover{background:#22222a}
+.drawer button:disabled{opacity:.35;cursor:default}
+.list button.on{background:#2a2a36;border-color:#8890a8;color:#fff}
+.list button.on::before{content:'● ';color:#aab}
+.field{display:flex;flex-direction:column;gap:5px;margin:0 0 10px}
+.field span{display:flex;justify-content:space-between;color:#9aa0b0}
+.field input[type=range]{width:100%;accent-color:#b8bcc8}
+.field input:disabled{opacity:.35}
+.drawer footer{margin-top:6px;padding-top:12px;border-top:1px solid #23232a;color:#6a6e7c;line-height:1.6;font-size:11px}
