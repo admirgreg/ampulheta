@@ -5,10 +5,12 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <title>Ampulheta ASCII</title>
   <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="widgets.css">
 </head>
 <body>
   <canvas id="c"></canvas>
   <canvas id="glow"></canvas>
+  <div id="widgets"></div>
   <div id="ui">
     <button id="menuBtn" class="menuBtn" aria-label="Menu" aria-expanded="false" title="Menu (M)"><span></span><span></span><span></span></button>
     <nav id="panel" class="drawer" aria-hidden="true">
@@ -39,10 +41,14 @@
           <input id="audioFile" type="file" accept="audio/*" hidden>
         </div>
       </section>
+      <section><h3>Widgets</h3>
+        <button id="wgBtn" title="Relógio, clima e calendário (W)">▦ relógio + clima + calendário</button>
+        <label class="field" style="margin-top:10px"><span>cidade do clima</span><input id="cityIn" type="text" placeholder="Votorantim" autocomplete="off" spellcheck="false"></label>
+      </section>
       <section><h3>Tela</h3>
         <div class="two"><button id="fs" title="Tela cheia (F)">⛶ tela cheia</button><button id="rec" title="Gravar vídeo .webm">● gravar</button></div>
       </section>
-      <footer>M menu · O próximo objeto · F tela cheia · Espaço virar · P pausar · C cor · R letras · G brilho · H esconder tudo</footer>
+      <footer>M menu · W widgets · O próximo objeto · F tela cheia · Espaço virar · P pausar · C cor · R letras · G brilho · H esconder tudo</footer>
     </nav>
   </div>
   <script src="objects/ampulheta.js"></script>
@@ -50,5 +56,6 @@
   <script src="objects/chave.js"></script>
   <script src="objects/coroa.js"></script>
   <script src="script.js"></script>
+  <script src="widgets.js"></script>
 </body>
 </html>

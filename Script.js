@@ -918,7 +918,7 @@ $("audioFile").onchange = (e) => {
   e.target.value = "";
 };
 addEventListener("keydown", (e) => {
-  if (e.target.tagName === "SELECT") return;
+  if (/INPUT|SELECT|TEXTAREA/.test(e.target.tagName)) return;
   const k = e.key.toLowerCase();
   if (k === "f") toggleFS();
   else if (k === "p") togglePause();

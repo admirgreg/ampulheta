@@ -1,0 +1,36 @@
+/* widgets de papel de parede: relógio, data, clima e calendário */
+:root{--u:min(.86vh,1.2vw);--dim:.5}
+#widgets{position:fixed;inset:0;z-index:3;pointer-events:none;display:none;flex-direction:column;align-items:center;justify-content:center;gap:calc(var(--u)*1.6);
+ color:#f2f3f7;font-family:"SF Pro Display","Segoe UI Variable Display","Segoe UI",system-ui,-apple-system,sans-serif;text-shadow:0 2px 20px rgba(0,0,0,.55);text-align:center}
+body.widgets-on #widgets{display:flex}
+body.widgets-on #c{opacity:var(--dim)}
+body.widgets-on #glow{opacity:calc(var(--dim)*.5)}
+.w-clock{font-size:calc(var(--u)*17);font-weight:200;letter-spacing:-.02em;line-height:1;font-variant-numeric:tabular-nums}
+.w-date{font-size:calc(var(--u)*2.6);font-weight:400;letter-spacing:.05em;opacity:.92}
+.w-weather{display:flex;flex-direction:column;align-items:center;gap:calc(var(--u)*.5)}
+.w-weather .city{font-size:calc(var(--u)*2.4);font-weight:500;letter-spacing:.14em;text-transform:uppercase;opacity:.85}
+.w-weather .now{display:flex;align-items:center;gap:calc(var(--u)*1.6)}
+.w-weather .ico{font-size:calc(var(--u)*5.2);line-height:1;text-shadow:none}
+.w-weather .temp{font-size:calc(var(--u)*5.4);font-weight:300}
+.w-weather .desc{font-size:calc(var(--u)*2.4);opacity:.88}
+.w-weather .hl{font-size:calc(var(--u)*2);opacity:.7}
+.w-forecast{display:flex;gap:calc(var(--u)*3.4)}
+.w-forecast .fc{display:flex;flex-direction:column;align-items:center;gap:calc(var(--u)*.5);font-size:calc(var(--u)*2.1)}
+.w-forecast .fc b{font-weight:600;opacity:.85}
+.w-forecast .fc .ico{font-size:calc(var(--u)*3.6);line-height:1.1;text-shadow:none}
+.w-forecast .fc i{font-style:normal;opacity:.55}
+/* calendário no estilo do Google Agenda */
+.w-cal{margin-top:calc(var(--u)*1.4)}
+.cal-card{display:flex;gap:calc(var(--u)*3);align-items:stretch;padding:calc(var(--u)*3) calc(var(--u)*3.6);border-radius:calc(var(--u)*5);text-shadow:none;text-align:left;
+ background:rgba(54,55,61,.62);backdrop-filter:blur(18px) saturate(1.2);-webkit-backdrop-filter:blur(18px) saturate(1.2);border:1px solid rgba(255,255,255,.14);box-shadow:0 12px 40px rgba(0,0,0,.35)}
+.cal-main{width:calc(var(--u)*38)}
+.cal-month{font-size:calc(var(--u)*2.9);letter-spacing:.16em;font-weight:400;color:#e9eaf0;margin-bottom:calc(var(--u)*1.8)}
+.cal-grid{display:grid;grid-template-columns:repeat(7,1fr);row-gap:calc(var(--u)*.5)}
+.cal-grid span{display:flex;align-items:center;justify-content:center;height:calc(var(--u)*4.6);font-size:calc(var(--u)*2.5);font-weight:600;color:#eceef4}
+.cal-grid .h{font-size:calc(var(--u)*2);font-weight:700;color:#8f919c;height:calc(var(--u)*3.6)}
+.cal-grid .out{color:rgba(255,255,255,.28)}
+.cal-grid .today{width:calc(var(--u)*4.6);margin:0 auto;border-radius:50%;background:#93aaf0;color:#1b2033}
+.cal-evs{display:flex;flex-direction:column;gap:calc(var(--u)*1.2);width:calc(var(--u)*34)}
+.cal-evs .ev{flex:1;border-radius:calc(var(--u)*3.2);padding:calc(var(--u)*2) calc(var(--u)*2.4);background:#e7c460;color:#24211a;display:flex;flex-direction:column;gap:calc(var(--u)*.4)}
+.cal-evs .ev b{font-size:calc(var(--u)*2.7);font-weight:700}
+.cal-evs .ev span{font-size:calc(var(--u)*2.7);font-weight:400}

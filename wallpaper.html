@@ -5,10 +5,12 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <title>Ampulheta ASCII — papel de parede</title>
   <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="widgets.css">
 </head>
 <body>
   <canvas id="c"></canvas>
   <canvas id="glow"></canvas>
+  <div id="widgets"></div>
   <div id="ui">
     <button id="menuBtn" class="menuBtn" aria-label="Menu" aria-expanded="false" title="Menu (M)"><span></span><span></span><span></span></button>
     <nav id="panel" class="drawer" aria-hidden="true">
@@ -39,10 +41,14 @@
           <input id="audioFile" type="file" accept="audio/*" hidden>
         </div>
       </section>
+      <section><h3>Widgets</h3>
+        <button id="wgBtn" title="Relógio, clima e calendário (W)">▦ relógio + clima + calendário</button>
+        <label class="field" style="margin-top:10px"><span>cidade do clima</span><input id="cityIn" type="text" placeholder="Votorantim" autocomplete="off" spellcheck="false"></label>
+      </section>
       <section><h3>Tela</h3>
         <div class="two"><button id="fs" title="Tela cheia (F)">⛶ tela cheia</button><button id="rec" title="Gravar vídeo .webm">● gravar</button></div>
       </section>
-      <footer>M menu · O próximo objeto · F tela cheia · Espaço virar · P pausar · C cor · R letras · G brilho · H esconder tudo</footer>
+      <footer>M menu · W widgets · O próximo objeto · F tela cheia · Espaço virar · P pausar · C cor · R letras · G brilho · H esconder tudo</footer>
     </nav>
   </div>
   <script src="objects/ampulheta.js"></script>
@@ -53,9 +59,12 @@
     // Modo papel de parede (Lively Wallpaper etc.). Ajuste aqui:
     //   fps   = limite de quadros (30 poupa CPU)   cycle = troca de objeto a cada N s (0 = não troca)
     //   obj   = ampulheta | vinil | chave | coroa   pal = 0..4 (branco, verde, âmbar, ciano, vermelho)
+    //   widgets = 1/0 relógio+clima+calendário   city = cidade do clima   dim = brilho do desenho atrás (0 a 1)
+    //   events = lista de compromissos de hoje, ex.: [{date:'todo-dia',title:'Trabalho',time:'08:00 – 18:00'}]
     //   ramp  = 0..2   glow = 1/0   timer = 0 | 1 | 5 | 25 | 50 | pomo   hud = 1 mostra o canto de dados
-    window.CONFIG={wallpaper:1,fps:30,cycle:90,obj:'ampulheta',pal:0,ramp:0,glow:1,timer:0,hud:0};
+    window.CONFIG={wallpaper:1,widgets:1,city:'Votorantim',dim:.5,fps:30,cycle:90,obj:'ampulheta',pal:0,ramp:0,glow:1,timer:0,hud:0};
   </script>
   <script src="script.js"></script>
+  <script src="widgets.js"></script>
 </body>
 </html>
